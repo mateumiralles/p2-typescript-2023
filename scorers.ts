@@ -1,4 +1,4 @@
-class Scorer {
+export class Scorer {
     name: String;
     team: String;
     nationality: String;

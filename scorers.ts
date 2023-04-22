@@ -10,6 +10,10 @@ export class Scorer {
     penalties: Number;
   
     dateOfBirth?: Date;
+
+    public get joinedName() {
+        return this.name.split(" ").join("");
+    }
   
     constructor(
       name: String,

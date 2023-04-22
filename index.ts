@@ -1,12 +1,14 @@
 import { writeFile } from "fs/promises";
 import { loadScorers } from "./scorers.js";
-import { renderListPage } from "./renderer.js";
+import { renderDetailPage, renderListPage } from "./renderer.js";
 
-var a = await loadScorers(50);
-console.log(a[49]);
-const htmlList = renderListPage(a)
+var scorersList = await loadScorers(3);
 
-await writeFile('usersList.html', htmlList);
+const htmlList = renderListPage(scorersList);
 
+for (const scorer of scorersList) {
+  const htmlDetail = renderDetailPage(scorer);
+  await writeFile(`scorers/${scorer.joinedName}.html`, htmlDetail);
+}
 
-
+await writeFile("usersList.html", htmlList);

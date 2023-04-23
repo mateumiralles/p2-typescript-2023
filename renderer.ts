@@ -20,7 +20,7 @@ export const renderListPage = (scorers: Array<Scorer>) => {
     
     <body>
     <h1> Europe's Top Scorers </h1>
-     <div class='heading'> <span>RANKING</span> <span>PLAYER</span> <span>GOALS</span> </div>
+     <div class='heading'> <span>RANK</span> <span>PLAYER</span> <span>GOALS</span> </div>
      <div> ${renderList(scorers)} </div>
     </body>
     </html>

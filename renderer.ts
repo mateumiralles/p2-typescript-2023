@@ -48,19 +48,15 @@ export const renderDetailPage = (scorer: Scorer) => {
         <div>
             <div>
                 <h1> ${scorer.name} </h1>
-                <div> 
-                    <span> ${scorer.nationality}</span>
-                    <span> ${scorer.dateOfBirth.getUTCDate()}/${
-    scorer.dateOfBirth.getUTCMonth() + 1
-  }/${scorer.dateOfBirth.getUTCFullYear()} </span>
-                </div>
+                <h3> ${scorer.team}</h3>
             </div>
-            <div>
-                <h2> ${scorer.team}</h2>
+            <div> 
+              <span> ${scorer.dateOfBirth.getUTCDate()}/${scorer.dateOfBirth.getUTCMonth() + 1}/${scorer.dateOfBirth.getUTCFullYear()} </span>
+              <span> ${scorer.nationality}</span>
+              <span> ${scorer.position}</span>
             </div>
-            <div>
-                <h2> ${scorer.position}</h2>
-            </div>
+
+
         </div>
         <div>
             <div>
@@ -74,12 +70,16 @@ export const renderDetailPage = (scorer: Scorer) => {
             </div>
 
             <div>
-                <span class='numt'>${scorer.assists === null ? 0 : scorer.assists}</span>
+                <span class='numt'>${
+                  scorer.assists === null ? 0 : scorer.assists
+                }</span>
                 <span class="subt">ASSISTS</span>
             </div>
 
             <div>
-                <span class='numt'>${scorer.penalties > 0 ? scorer.penalties : 0} </span>
+                <span class='numt'>${
+                  scorer.penalties > 0 ? scorer.penalties : 0
+                } </span>
                 <span class="subt">PENALTIES</span>
             </div>
         </div>

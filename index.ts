@@ -2,8 +2,7 @@ import { writeFile } from "fs/promises";
 import { loadScorers } from "./scorers.js";
 import { renderDetailPage, renderListPage } from "./renderer.js";
 
-var scorersList = await loadScorers(3);
-console.log(scorersList[0]);
+var scorersList = await loadScorers(15);
 
 const htmlList = renderListPage(scorersList);
 

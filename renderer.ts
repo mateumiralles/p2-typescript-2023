@@ -16,7 +16,7 @@ export const renderListPage = (scorers: Array<Scorer>) => {
   return `
     <!DOCTYPE html>
     <html lang="en">
-    ${headHtml("Europe Top Scorers", 'stylesList')}
+    ${headHtml("Europe Top Scorers", "stylesList")}
     
     <body>
     <h1> Europe's Top Scorers </h1>
@@ -42,11 +42,60 @@ export const renderDetailPage = (scorer: Scorer) => {
   return `
     <!DOCTYPE html>
     <html lang="en">
-    ${headHtml(`${scorer.name} - Details`, '')}
+    ${headHtml(`${scorer.name} - Details`, "../stylesDetail")}
     </head>
     <body>
-      <h1> ${scorer.name}</h1>
+        <div>
+            <div>
+                <h1> ${scorer.name} </h1>
+                <div> 
+                    <span> ${scorer.nationality}</span>
+                    <span> ${scorer.dateOfBirth.getUTCDate()}/${
+    scorer.dateOfBirth.getUTCMonth() + 1
+  }/${scorer.dateOfBirth.getUTCFullYear()} </span>
+                </div>
+            </div>
+            <div>
+                <h2> ${scorer.team}</h2>
+            </div>
+            <div>
+                <h2> ${scorer.position}</h2>
+            </div>
+        </div>
+        <div>
+            <div>
+                <span class='numt'>${scorer.playedMatches}</span>
+                <span class="subt">PLAYED MATCHES</span>
+            </div>
+                
+            <div>
+                <span class='numt'>${scorer.goals}</span>
+                <span class="subt">GOALS</span>
+            </div>
+
+            <div>
+                <span class='numt'>${scorer.assists === null ? 0 : scorer.assists}</span>
+                <span class="subt">ASSISTS</span>
+            </div>
+
+            <div>
+                <span class='numt'>${scorer.penalties > 0 ? scorer.penalties : 0} </span>
+                <span class="subt">PENALTIES</span>
+            </div>
+        </div>
     </body>
     </html>
     `;
+};
+const ageFromDateOfBirthday = (dateOfBirth: Date): number => {
+  const today = new Date();
+  const birthDate = new Date(dateOfBirth);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const m = today.getMonth() - birthDate.getMonth();
+
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+    age--;
+  }
+
+  return age;
 };

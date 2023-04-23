@@ -4,10 +4,10 @@ export class Scorer {
   nationality: String;
   position: String;
 
-  playedMatches: Number;
-  goals: Number;
-  assists: Number;
-  penalties: Number;
+  playedMatches: number;
+  goals: number;
+  assists: number;
+  penalties: number;
 
   dateOfBirth: Date;
 
@@ -20,10 +20,10 @@ export class Scorer {
     team: String,
     nationality: String,
     position: String,
-    playedMatches: Number,
-    goals: Number,
-    assists: Number,
-    penalties: Number,
+    playedMatches: number,
+    goals: number,
+    assists: number,
+    penalties: number,
     dateOfBirth: Date
   ) {
     this.name = name;
